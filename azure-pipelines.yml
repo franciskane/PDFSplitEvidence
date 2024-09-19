@@ -12,6 +12,8 @@ strategy:
       python.version: '3.9'
 
 steps:
+- checkout: self
+
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
@@ -19,9 +21,7 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install numpy==1.21.0  # Specify the version of numpy
-    pip install -r requirements.txt
-    pip install pyinstaller
+    pip install numpy==1.21.0 -r requirements.txt pyinstaller
   displayName: 'Install dependencies and PyInstaller with downgraded numpy'
 
 - script: |
