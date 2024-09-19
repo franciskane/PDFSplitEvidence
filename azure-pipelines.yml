@@ -4,25 +4,18 @@ trigger:
 pool:
   vmImage: windows-latest
 
-strategy:
-  matrix:
-    Python38:
-      python.version: '3.8'
-    Python39:
-      python.version: '3.9'
-
 steps:
 - checkout: self
 
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+    versionSpec: '3.9'  # Select only one Python version
+  displayName: 'Use Python 3.9'
 
 - script: |
     python -m pip install --upgrade pip
     pip install numpy==1.21.0 -r requirements.txt pyinstaller
-  displayName: 'Install dependencies and PyInstaller with downgraded numpy'
+  displayName: 'Install dependencies and PyInstaller'
 
 - script: |
     pyinstaller --windowed gui.py
