@@ -1,0 +1,10 @@
+pyqt5
+pyqt5-tools
+pytesseract
+PyPDF2
+pillow
+fpdf
+opencv-python
+tesseract
+reportlab
+pymupdf

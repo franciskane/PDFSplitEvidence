@@ -1,0 +1,19 @@
+name: pdf_analyzer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - pyinstaller
+    - pyqt5
+    - pyqt5-tools
+    - pytesseract
+    - PyPDF2
+    - pymupdf  # Added pymupdf (fitz) to replace pdf2image and poppler
+    - pillow
+    - fpdf
+    - opencv-python
+    - tesseract
+    - reportlab
